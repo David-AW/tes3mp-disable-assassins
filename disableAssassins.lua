@@ -11,7 +11,7 @@ Methods.OnObjectSpawn = function(pid, cellDescription)
 
 	for i = 0, tes3mp.GetObjectChangesSize() - 1 do -- Loop through all objects sent in packet
 		local refId = tes3mp.GetObjectRefId(i)
-		if refId == "db_assassin1b" then
+		if string.match(refId, "db_assassin") ~= nil then
 			isObjectAssassin = true
 			Assassins[found] = tes3mp.GetObjectMpNum(i) -- This is how we get the MP num for actors
 			found = found + 1
