@@ -9,6 +9,8 @@ Methods.OnObjectSpawn = function(pid, cellDescription)
 
 	tes3mp.ReadLastEvent() -- Server doesnt save objects to memory so we only get access to the current packet sent which was "OnObjectSpawn"
 
+	local found = 0
+	
 	for i = 0, tes3mp.GetObjectChangesSize() - 1 do -- Loop through all objects sent in packet
 		local refId = tes3mp.GetObjectRefId(i)
 		if string.match(refId, "db_assassin") ~= nil then
