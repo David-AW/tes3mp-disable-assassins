@@ -24,7 +24,7 @@ Methods.OnObjectSpawn = function(pid, cellDescription)
 	if found > 0 then
 		for i,p in pairs(Players) do -- Do this for each player online
 			for index,a in pairs(Assassins) do -- Sometimes more than one assassin spawns
-				tes3mp.InitiateEvent(p.pid)
+				tes3mp.InitializeEvent(p.pid)
 				tes3mp.SetEventCell(cellDescription)
 				tes3mp.SetObjectRefNumIndex(0)
 				tes3mp.SetObjectMpNum(a) 
