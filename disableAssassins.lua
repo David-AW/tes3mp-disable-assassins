@@ -30,6 +30,15 @@ Methods.OnObjectSpawn = function(pid, cellDescription)
                 tes3mp.SetObjectMpNum(a) 
                 tes3mp.AddWorldObject() -- Add actor to packet
                 tes3mp.SendObjectDelete() -- Send Delete
+
+                if LoadedCells[cellDescription] ~= nil then
+
+                    local refIndex = "0-" .. a
+                    LoadedCells[cellDescription].data.objectData[refIndex] = nil
+                    tableHelper.removeValue(LoadedCells[cellDescription].data.packets.spawn, refIndex)
+                    tableHelper.removeValue(LoadedCells[cellDescription].data.packets.actorList, refIndex)
+                    LoadedCells[cellDescription]:Save()
+                end
             end
         end
     end
